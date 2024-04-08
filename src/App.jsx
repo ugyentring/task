@@ -7,6 +7,11 @@ const App = () => {
     { id: 124, name: "Puma boots", completed: false },
     { id: 125, name: "addidas wear", completed: true },
   ]);
+
+  function handleDelete(id) {
+    setTasks(tasks.filter((task) => task.id !== id));
+  }
+
   return (
     <>
       <div className="App">
@@ -17,7 +22,9 @@ const App = () => {
               <span>
                 {task.id} - {task.name}
               </span>
-              <button className="delete">Delete</button>
+              <button onClick={() => handleDelete(task.id)} className="delete">
+                Delete
+              </button>
             </li>
           ))}
         </ul>
